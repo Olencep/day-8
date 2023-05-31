@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+int main()
+{
+	int arr[] = {3, 3, 5, 5, 7, 9, 10};
+	int len = sizeof(arr) / sizeof(int);
+	int mid, i, n, sind, eind;
+	scanf("%d", &n);
+	
+	sind = 0;
+	eind = len - 1;
+	
+	while (sind <= eind)
+	{
+		mid = (sind + eind) / 2;
+		
+		if (arr[mid] == n)
+		{
+			printf("Element %d found at index %d.\n", n, mid);
+			break;
+		}
+		else if (arr[mid] < n)
+			sind = mid + 1;
+		else
+			eind = mid - 1;
+	}
+	
+	if (sind > eind)
+		printf("Element %d not found in the array.\n", n);
+	
+	return 0;
+}
